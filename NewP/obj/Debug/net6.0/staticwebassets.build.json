@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "5p4VPPJag0lBcWZ/6n/+u4UX5zOjXeWDs2tF0GVk2bM=",
+  "Hash": "zo0NMD2HtBjcs9mqAbbSUQ43qAuX8bZVMm9gpoq8GU0=",
   "Source": "NewP",
   "BasePath": "_content/NewP",
   "Mode": "Default",
@@ -1103,6 +1103,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\USER\\source\\repos\\NewP\\NewP\\wwwroot\\images\\night-sea-woraput.jpg",
+      "SourceId": "NewP",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\USER\\source\\repos\\NewP\\NewP\\wwwroot\\",
+      "BasePath": "_content/NewP",
+      "RelativePath": "images/night-sea-woraput.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\night-sea-woraput.jpg"
     },
     {
       "Identity": "C:\\Users\\USER\\source\\repos\\NewP\\NewP\\wwwroot\\js\\site.js",

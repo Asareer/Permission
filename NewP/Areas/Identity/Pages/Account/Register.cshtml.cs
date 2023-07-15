@@ -131,16 +131,22 @@ namespace NewP.Areas.Identity.Pages.Account
                 //    LastName = Input.LastName
                 //};
                 var user = CreateUser();
-                await _signInManager.SignInAsync(user, Input.FirstName);
+
+                
+                
                 //await _userStore.SetUserNameAsync(user, Input.FirstName, CancellationToken.None);
-                await _userStore.SetUserNameAsync(user, Input.LastName, CancellationToken.None);
+               // await _userStore.SetUserNameAsync(user, Input.LastName, CancellationToken.None);
                 await _userStore.SetUserNameAsync(user,Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
+                user.FirstName = Input.FirstName;
+                user.LastName = Input.LastName;
                 var result = await _userManager.CreateAsync(user, Input.Password);
 
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
+
+                    await _userManager.AddToRoleAsync(user,"User");
 
                     var userId = await _userManager.GetUserIdAsync(user);
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
