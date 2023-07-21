@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using NewP.Data;
 using NewP.Models;
 using NewP.Services;
+using NewP.Seeds;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,7 +15,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-builder.Services.AddIdentity<ApplicationUser , IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
+builder.Services.AddIdentity<ApplicationUser , IdentityRole>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultUI()
     .AddDefaultTokenProviders();
@@ -48,5 +49,23 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 app.MapRazorPages();
+using var scope = app.Services.CreateScope();
+var services = scope.ServiceProvider;
+var loggerFactory = services.GetRequiredService<ILoggerFactory>();
+var logger = loggerFactory.CreateLogger<ApplicationDbContext>();
+try
+{
+    var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
+    var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
+    await DefaultRoles.SeedAsync(roleManager);
+    await DefaultUsers.SeedBasicUserAsync(userManager);
+    await DefaultUsers.SeedSuperAdminUserAsync(userManager, roleManager);
+    logger.LogInformation("Data Seeded");
+    logger.LogInformation("Application Started");
+}
+catch (Exception ex)
+{
+    logger.LogWarning(ex, "An Error Occurred While Seeding Data");
+}
 
 app.Run();
