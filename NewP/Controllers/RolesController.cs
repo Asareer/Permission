@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using NewP.Data;
 using NewP.Models;
 using NewP.ViewModels;
 
@@ -12,7 +13,7 @@ namespace NewP.Controllers
     {
         private readonly RoleManager<IdentityRole> _roleManager;
 
-        public RolesController(RoleManager<IdentityRole> roleManager)
+        public  RolesController(RoleManager<IdentityRole> roleManager )
         {
             _roleManager = roleManager;
         }
@@ -21,7 +22,9 @@ namespace NewP.Controllers
         public async Task<IActionResult> Index()
         {
             var roles = await _roleManager.Roles.ToListAsync();
+            
             return View(roles);
+            
         }
 
         [HttpPost]
@@ -38,8 +41,8 @@ namespace NewP.Controllers
             }
 
             await _roleManager.CreateAsync(new IdentityRole(model.Name.Trim()));
-
             return RedirectToAction(nameof(Index));
+            
         }
     }
 }

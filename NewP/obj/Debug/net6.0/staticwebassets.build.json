@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "zo0NMD2HtBjcs9mqAbbSUQ43qAuX8bZVMm9gpoq8GU0=",
+  "Hash": "c6btg0LvhOH0pduv/w537VMnhgsT2ZLBlqLmhuh7gG0=",
   "Source": "NewP",
   "BasePath": "_content/NewP",
   "Mode": "Default",
@@ -1137,6 +1137,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
+    },
+    {
+      "Identity": "C:\\Users\\USER\\source\\repos\\NewP\\NewP\\wwwroot\\lib\\bootbox.js\\bootbox.js",
+      "SourceId": "NewP",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\USER\\source\\repos\\NewP\\NewP\\wwwroot\\",
+      "BasePath": "_content/NewP",
+      "RelativePath": "lib/bootbox.js/bootbox.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\bootbox.js\\bootbox.js"
+    },
+    {
+      "Identity": "C:\\Users\\USER\\source\\repos\\NewP\\NewP\\wwwroot\\lib\\bootbox.js\\bootbox.min.js",
+      "SourceId": "NewP",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\USER\\source\\repos\\NewP\\NewP\\wwwroot\\",
+      "BasePath": "_content/NewP",
+      "RelativePath": "lib/bootbox.js/bootbox.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\bootbox.js\\bootbox.min.js"
     },
     {
       "Identity": "C:\\Users\\USER\\source\\repos\\NewP\\NewP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",

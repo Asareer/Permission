@@ -538,3 +538,4 @@ C:\Users\USER\source\repos\NewP\NewP\obj\Debug\net6.0\NewP.dll
 C:\Users\USER\source\repos\NewP\NewP\obj\Debug\net6.0\ref\NewP.dll
 C:\Users\USER\source\repos\NewP\NewP\obj\Debug\net6.0\NewP.pdb
 C:\Users\USER\source\repos\NewP\NewP\obj\Debug\net6.0\NewP.genruntimeconfig.cache
+C:\Users\USER\source\repos\NewP\NewP\bin\Debug\net6.0\libman.json
