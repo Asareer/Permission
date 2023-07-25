@@ -6,6 +6,8 @@ using NewP.Data;
 using NewP.Models;
 using NewP.Services;
 using NewP.Seeds;
+using Microsoft.AspNetCore.Authorization;
+using NewP.Filters;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +16,9 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+builder.Services.AddSingleton<IAuthorizationPolicyProvider , PermissionPolicyProvider>();
+
+builder.Services.AddScoped<IAuthorizationHandler,PermissionAuthorizationHandler>();
 
 builder.Services.AddIdentity<ApplicationUser , IdentityRole>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddEntityFrameworkStores<ApplicationDbContext>()

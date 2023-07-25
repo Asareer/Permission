@@ -2,8 +2,11 @@
 {
     public enum Modules
     {
-        Products,
-        Stock,
-        Categories
+        System,
+        ProjectRequests,
+        InitialProcedures,
+        ProcessStarting,
+        TerminatedProjects,
+        Reports
     }
 }

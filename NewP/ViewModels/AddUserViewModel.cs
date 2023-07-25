@@ -34,6 +34,6 @@ namespace NewP.ViewModels
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
 
-        public List<RoleViewModel>? Roles { get; set; }
+        public List<CheckBoxViewModel>? Roles { get; set; }
     }
 }

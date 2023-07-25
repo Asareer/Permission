@@ -44,9 +44,9 @@
         {
             <div class="form-check m-1">
                 <input type="hidden" asp-for="@Model.Roles[i].RoleId"/>
-                <input type="hidden" asp-for="@Model.Roles[i].RoleName"/>
+                <input type="hidden" asp-for="@Model.Roles[i].DisplayValue"/>
                 <input asp-for="@Model.Roles[i].IsSelected" class="form-check-input" />
-                <label class="form-check-label" asp-for="@Model.Roles[i].IsSelected">@Model.Roles[i].RoleName</label>
+                <label class="form-check-label" asp-for="@Model.Roles[i].IsSelected">@Model.Roles[i].DisplayValue</label>
             </div>
         }
         <span asp-validation-for="Roles" class="text-danger"></span>

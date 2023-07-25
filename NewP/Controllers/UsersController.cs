@@ -35,7 +35,7 @@ namespace NewP.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var roles = await _roleManager.Roles.Select(r => new RoleViewModel { RoleId = r.Id, RoleName = r.Name }).ToListAsync();
+            var roles = await _roleManager.Roles.Select(r => new CheckBoxViewModel { RoleId = r.Id, DisplayValue = r.Name }).ToListAsync();
             var viewModel = new AddUserViewModel
             {
                 Roles = roles
@@ -59,7 +59,7 @@ namespace NewP.Controllers
 
         public async Task<IActionResult> Add()
         {
-            var roles = await _roleManager.Roles.Select(r => new RoleViewModel { RoleId = r.Id, RoleName = r.Name }).ToListAsync();
+            var roles = await _roleManager.Roles.Select(r => new CheckBoxViewModel { RoleId = r.Id, DisplayValue = r.Name }).ToListAsync();
 
             var viewModel = new AddUserViewModel
             {
@@ -110,7 +110,7 @@ namespace NewP.Controllers
                 return View(model);
             }
 
-            await _userManager.AddToRolesAsync(user, model.Roles.Where(r => r.IsSelected).Select(r => r.RoleName));
+            await _userManager.AddToRolesAsync(user, model.Roles.Where(r => r.IsSelected).Select(r => r.DisplayValue));
 
             return RedirectToAction(nameof(Index));
 
@@ -184,10 +184,10 @@ namespace NewP.Controllers
             {
                 UserId = user.Id,
                 UserName = user.UserName,
-                Roles = roles.Select(role => new RoleViewModel
+                Roles = roles.Select(role => new CheckBoxViewModel
                 {
                     RoleId = role.Id,
-                    RoleName = role.Name,
+                    DisplayValue = role.Name,
                     IsSelected = _userManager.IsInRoleAsync(user, role.Name).Result
                 }).ToList()
             };
@@ -208,11 +208,11 @@ namespace NewP.Controllers
 
             foreach (var role in model.Roles)
             {
-                if (userRoles.Any(r => r == role.RoleName) && !role.IsSelected)
-                    await _userManager.RemoveFromRoleAsync(user, role.RoleName);
+                if (userRoles.Any(r => r == role.DisplayValue) && !role.IsSelected)
+                    await _userManager.RemoveFromRoleAsync(user, role.DisplayValue);
 
-                if (!userRoles.Any(r => r == role.RoleName) && role.IsSelected)
-                    await _userManager.AddToRoleAsync(user, role.RoleName);
+                if (!userRoles.Any(r => r == role.DisplayValue) && role.IsSelected)
+                    await _userManager.AddToRoleAsync(user, role.DisplayValue);
 
             }
 
